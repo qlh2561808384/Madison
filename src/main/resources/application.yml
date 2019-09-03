@@ -1,0 +1,6 @@
+server:
+  port: 20000
+userinfo:
+  names:´óº£
+  age:3000
+  content:name:${userInfo.names};age:${userInfo.age}

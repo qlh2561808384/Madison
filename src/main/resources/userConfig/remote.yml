@@ -1,0 +1,4 @@
+userinfo:
+  names:小孩
+  age:25
+  content:name:${userInfo.names};age:${userInfo.age}
