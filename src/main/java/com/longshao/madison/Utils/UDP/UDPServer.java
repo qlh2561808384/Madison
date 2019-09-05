@@ -1,9 +1,14 @@
 package com.longshao.madison.Utils.UDP;
 
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 *   服务端：
@@ -34,12 +39,31 @@ public class UDPServer {
         System.out.println("收到客户端的数据为=" + clientMsg + "客户端地址ip=" + clientAddress + "数据长度=" + length + "客户端发送端口号=" + port);
 
         //接受完数据后  回送给客户端
-        String serverMsg = "回送给客户端";
-        byte[] serverMsgBytes = serverMsg.getBytes();
+        /*String serverMsg = "回送给客户端";
+        byte[] serverMsgBytes = serverMsg.getBytes();*/
+        byte[] serverMsgBytes = getBytes();
         DatagramPacket clientDP = new DatagramPacket(serverMsgBytes, 0, serverMsgBytes.length, dp.getAddress(), dp.getPort());
         //回送给客户端
         ds.send(clientDP);
         ds.close();
 
+    }
+
+    public static byte[] getBytes(){
+        List list = new ArrayList();
+        list.add("w");
+        list.add("o");
+        list.add("o");
+        list.add("r");
+        list.add("d");
+        JSONObject jsonObject = JSONUtil.createObj();
+        jsonObject.put("arg01", 11);
+        jsonObject.put("patient_id", 22);
+        jsonObject.put("detect_id", 33);
+        jsonObject.put("list", list);
+        jsonObject.put("username", "qlhserver");
+        jsonObject.put("hearbeat", 44);
+        byte[] bytes = JSONUtil.toJsonStr(jsonObject).getBytes();
+        return bytes;
     }
 }
