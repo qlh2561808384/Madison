@@ -73,6 +73,19 @@
             <artifactId>jython-standalone</artifactId>
             <version>2.7.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <!-- 经常用的jar-->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.9</version>
+        </dependency>
     </dependencies>
 
     <build>

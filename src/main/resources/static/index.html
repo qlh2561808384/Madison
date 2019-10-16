@@ -4,10 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 </head>
 <body>
 <p>我是齐龙辉大帅逼，以后请叫我齐龙辉大帅逼</p>
+<button type="button" id="btn">点击我</button>
 <script type="application/javascript">
+    const arr = ['w', 'o', 'r', 'd'];
+    $("#btn").click(function () {
+        $.ajax({
+            url: "test/getPython",
+            type: "POST",
+            data: JSON.stringify({
+                arg01:1,
+                patient_id:2,
+                detect_id:3,
+                username:"qlh",
+                hearbeat:4,
+                list: arr
+            }),
+            contentType:'application/json',
+            dataType: 'json',
+            cache: false,
+            success: (data) => {
+                console.log(data);
+            },
+        });
+    });
 </script>
 </body>
 </html>
